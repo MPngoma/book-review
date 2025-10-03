@@ -1,0 +1,155 @@
+body {
+    /* Set same background color as the image */
+    background-color: #faf3e0;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+
+header{
+    background-color: #f4e1c1;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.book-review {
+    display: block;
+    min-height: 300px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    /* background-color: #ffffff; */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Separate image and review text */
+.book-review img {
+    float: left;
+    margin-right: 20px;
+    width: 200px;
+    height: 300px;
+    border-radius: 4px;
+}
+
+.book-review h2 {
+    margin-top: 0;
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+}
+
+.book-review p {
+    line-height: 1.6;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Add responsive design */
+@media (max-width: 600px) {
+    .book-review {
+        padding: 10px;
+    }
+
+    .book-review img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Customize Add Book Review button */
+.add-review-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+/* Align button to the center */
+.button-container {
+    text-align: center;
+    margin: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4e1c1;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Review page styles */
+div .review-intro {
+    text-align: center;
+    margin: 20px;
+}
+
+div .review-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin:  0 auto 20px  ;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Center labels in the review form */
+
+#reviewForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reviewForm label{
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#reviewForm textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#ratingForm {
+    margin: 10px 0 15px 0;
+    text-align: center;
+}
+
+#ratingForm input[type="radio"]{
+    font-size: 20px;
+}
+
+#ratingForm label[for="rating"] {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#submitReview {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    
+}

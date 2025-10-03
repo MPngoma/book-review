@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<div class="review-page">
+    <div class="review-intro">
+        <h2>Please fill out the form below to add your book review.</h2>
+
+    </div>
+
+    <!--Place form to add book review-->
+    <div class="review-section">
+        <form id="reviewForm" action="/submit-review" method="post">
+            <label for="title">Title:</label><br>
+            <textarea name="title" id="title" placeholder="Place Title here."></textarea><br>
+            <label for="author">Author:</label><br>
+            <textarea name="author" id="author" placeholder="Place Author name here."></textarea><br>
+            <label for="review">Review:</label><br>
+            <textarea name="review" id="review" placeholder="Place your review here."></textarea>
+            <label for="isbn">ISBN</label>
+            <textarea name="isbn" id="isbn" placeholder="Place Book ISBN (from openlibrary.org) here."></textarea>
+
+            <label for="rating">Rating:</label><br>
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">★★★★★</label><br>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★★★★☆</label><br>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★★★☆☆</label><br>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★★☆☆☆</label><br>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★☆☆☆☆</label><br>
+            <button type="submit" id="submitReview">Submit Review</button>
+        </form>
+        
+    </div>
+</div>
+<%- include('partials/footer') %>
+

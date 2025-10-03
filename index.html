@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Review</title>      
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+       <header> <h1>Book Review</h1> </header> 
+
+        <div class="book-review">
+            <!--Place image here-->
+            <img src="the_great_gatsby.png" alt="The Great Gatsby Book Cover">
+
+            <h2>The Great Gatsby</h2>
+            <p><strong>Author:</strong> F. Scott Fitzgerald</p>
+            <p><strong>Review:</strong> "The Great Gatsby" is a classic novel that explores themes of decadence, idealism, resistance to change, social upheaval, and excess. Set in the Jazz Age on Long Island, the story is narrated by Nick Carraway, who observes the mysterious millionaire Jay Gatsby and his obsession with the beautiful Daisy Buchanan. Fitzgerald's prose is elegant and evocative, capturing the spirit of the 1920s while also critiquing the American Dream. The characters are complex and flawed, making for a compelling read that resonates even today.</p>
+            <p><strong>Rating:</strong> ★★★★★</p>
+        </div>
+        <div class="book-review">
+            <!--Place image here-->
+            <img src="courage_to_be_disliked.png" alt="The Courage to be Disliked Book Cover">
+             
+            <h2>The Courage to be Disliked</h2>
+            <p><strong>Author:</strong> Ichiro Kishimi and Fumitake Koga</p>
+            <p><strong>Review:</strong> "The Courage to be Disliked" presents a unique approach to self-help through the lens of Adlerian psychology.
+                 The book is structured as a dialogue between a philosopher and a young man, making complex psychological concepts accessible and engaging. It challenges readers to rethink their perceptions of happiness, freedom, and interpersonal relationships. The authors emphasize the importance of taking responsibility for one's own life and choices, advocating for a life lived authentically and courageously. This book is thought-provoking and encourages deep reflection on personal growth and societal norms.</p>
+            <p><strong>Rating:</strong> ★★★★☆</p>
+        </div>
+            <!-- Add Book review button-->
+        <div class="button-container">
+            <button class="add-review-button" onclick="alert('Add Book Review functionality coming soon!')">Add Book Review</button>
+        </div>
+
+        <!-- Dynamic date footer-->
+         <footer>
+            <p>&copy; <span id="current-year">2024</span> Book Review. All rights reserved.</p>
+        </footer>
+        <script>
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
