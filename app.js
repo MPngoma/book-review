@@ -3,30 +3,37 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-const pg = require('pg');
+const { Pool } = require('pg');
 
-const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "book review",
-    password: "Migloleoj04!",
-    port: 5432,
-})
+// const { Client } = require('pg')
+require("dotenv").config();
+
+const db = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
+db.connect()
+  .then(() => console.log("Connected to PostgreSQL"))
+  .catch(err => console.error("Connection error:", err.stack));
+
+// const db = new pg.Client({
+//     user: "postgres",
+//     host: "localhost",
+//     database: "book review",
+//     password: "!",
+//     port: 5432,
+// })
+
 db.connect();
-
-
-
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
-// async function fetchBooks() {
-//     const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=10');
-//     return response.data.items;
-// }
 
 async function log_books() {
     const result = await db.query("SELECT * FROM books");
@@ -43,6 +50,7 @@ app.get('/', async (req, res) => {
 app.get('/review', (req, res) => {
     res.render('review');});
 
+
 app.post('/submit-review', async (req, res) => {
     const { title, author, review, isbn, rating } = req.body;
     try {
@@ -58,6 +66,7 @@ app.post('/submit-review', async (req, res) => {
     }
     res.redirect('/');
 });
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
