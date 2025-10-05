@@ -16,16 +16,15 @@ require("dotenv").config();
 //   port: process.env.DB_PORT,
 // });
 
-const { Pool } = pkg;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
 });
 
-db.connect()
-  .then(() => console.log("Connected to PostgreSQL"))
-  .catch(err => console.error("Connection error:", err.stack));
+// db.connect()
+//   .then(() => console.log("Connected to PostgreSQL"))
+//   .catch(err => console.error("Connection error:", err.stack));
 
 
 app.use(bodyParser.json());
@@ -34,7 +33,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 async function log_books() {
-    const result = await db.query("SELECT * FROM books");
+    const result = await pool.query("SELECT * FROM books");
     return result.rows;
 }
 
@@ -52,7 +51,7 @@ app.get('/review', (req, res) => {
 app.post('/submit-review', async (req, res) => {
     const { title, author, review, isbn, rating } = req.body;
     try {
-        const result = await db.query(
+        const result = await pool.query(
             "INSERT INTO books (title, author, review, isbn, rating) VALUES ($1, $2, $3, $4, $5)",
             [title, author, review, isbn, rating]
         );
